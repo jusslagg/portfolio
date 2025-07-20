@@ -4,7 +4,7 @@
 *   **Descripción general del proyecto:** Este proyecto es una aplicación web construida con Next.js, TypeScript, y Tailwind CSS. Proporciona una interfaz de usuario moderna y responsiva.
 *   **Tecnologías utilizadas:**
     *   Next.js: Framework de React para construir aplicaciones web.
-    *   TypeScript: Lenguaje de programación que añade tipado estático a JavaScript.
+    *   TypeScript: Lenguaje de programación que añade tipado estático a JavaScript (65%).
     *   Tailwind CSS: Framework de CSS para diseñar interfaces de usuario rápidamente.
     *   Radix UI: Librería de componentes de interfaz de usuario sin estilo.
 *   **Estructura del proyecto:** El proyecto está organizado en las siguientes carpetas principales: `app/`, `components/`, `hooks/`, `lib/`, `public/`, y `styles/`.

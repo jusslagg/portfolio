@@ -51,7 +51,7 @@ import { Badge } from "@/components/ui/badge"
 
 // Lazy load heavy components
 const LazyProjectGallery = lazy(() => import("@/components/project-gallery"))
-const LazySkillsConstellation = lazy(() => import("@/components/skills-constellation"))
+// const LazySkillsConstellation = lazy(() => import("@/components/skills-constellation"))
 
 export default function Portfolio() {
   const [currentCertificate, setCurrentCertificate] = useState(0)
@@ -90,7 +90,7 @@ export default function Portfolio() {
   const heroRef = useRef<HTMLElement>(null)
   const aboutRef = useRef<HTMLElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
-  const rapidClickTimer = useRef<NodeJS.Timeout>()
+  const rapidClickTimer = useRef<NodeJS.Timeout | null>(null)
 
   // Konami Code sequence
   const konamiSequence = [
@@ -362,58 +362,79 @@ export default function Portfolio() {
     return () => clearTimeout(timer)
   }, [isVisible])
 
-  const certificates = [
-    { name: "React Js", institution: "Coderhouse", color: "from-cyan-400 via-blue-500 to-indigo-600", icon: "⚛️" },
-    {
-      name: "Inglés para el mundo digital",
-      institution: "Coderhouse",
-      color: "from-emerald-400 via-teal-500 to-cyan-600",
-      icon: "🌍",
-    },
-    {
-      name: "Desarrollo avanzado de Backend",
-      institution: "Coderhouse",
-      color: "from-purple-400 via-pink-500 to-rose-600",
-      icon: "🔧",
-    },
-    {
-      name: "IA: Prompt Engineering",
-      institution: "Coderhouse",
-      color: "from-orange-400 via-red-500 to-pink-600",
-      icon: "🤖",
-    },
-    {
-      name: "Programación con Java",
-      institution: "Coderhouse",
-      color: "from-amber-400 via-orange-500 to-red-600",
-      icon: "☕",
-    },
-    {
-      name: "Backend II: Diseño y Arquitectura",
-      institution: "Coderhouse",
-      color: "from-teal-400 via-blue-500 to-indigo-600",
-      icon: "🏗️",
-    },
-    {
-      name: "Photoshop e Illustrator",
-      institution: "Coderhouse",
-      color: "from-pink-400 via-rose-500 to-red-600",
-      icon: "🎨",
-    },
-    {
-      name: "Backend III: Testing y Escalabilidad",
-      institution: "Coderhouse",
-      color: "from-violet-400 via-purple-500 to-indigo-600",
-      icon: "🧪",
-    },
-    { name: "Next Js", institution: "Coderhouse", color: "from-gray-400 via-slate-500 to-gray-700", icon: "▲" },
-    {
-      name: "Inglés Nivel Advanced",
-      institution: "Coderhouse",
-      color: "from-green-400 via-emerald-500 to-teal-600",
-      icon: "🎓",
-    },
-  ]
+ const certificates = [
+  {
+    name: "React Js",
+    institution: "Coderhouse",
+    color: "from-cyan-400 via-blue-500 to-indigo-600",
+    icon: "⚛️",
+    link: "https://drive.google.com/file/d/14YnxBA046sILa2_sN3WtMt5Ujg-Vd-PY/view?usp=sharing",
+  },
+  {
+    name: "Inglés para el mundo digital",
+    institution: "Coderhouse",
+    color: "from-emerald-400 via-teal-500 to-cyan-600",
+    icon: "🌍",
+    link: "https://drive.google.com/file/d/1TSnM8cndIieEkyQ9sJD8cBXrFkSYdiLx/view?usp=sharing",
+  },
+  {
+    name: "Desarrollo avanzado de Backend",
+    institution: "Coderhouse",
+    color: "from-purple-400 via-pink-500 to-rose-600",
+    icon: "🔧",
+    link: "https://drive.google.com/file/d/1LRl7YqPrhlsJ7yOaLwJFvNagdzK6sziH/view?usp=sharing",
+  },
+  {
+    name: "IA: Prompt Engineering",
+    institution: "Coderhouse",
+    color: "from-orange-400 via-red-500 to-pink-600",
+    icon: "🤖",
+    link: "https://drive.google.com/file/d/1rmbXtPjvpWt2wAUFI3de385sRy6Bkwdq/view?usp=sharing",
+  },
+  {
+    name: "Programación con Java",
+    institution: "Coderhouse",
+    color: "from-amber-400 via-orange-500 to-red-600",
+    icon: "☕",
+    link: "https://drive.google.com/file/d/1JxIMsPUokobhzyITC9S1RN7RM8O6s8Rn/view?usp=sharing",
+  },
+  {
+    name: "Backend II: Diseño y Arquitectura",
+    institution: "Coderhouse",
+    color: "from-teal-400 via-blue-500 to-indigo-600",
+    icon: "🏗️",
+    link: "https://drive.google.com/file/d/18Tn4jmcH9qOLHxqF9LR36Qf0iGOtY7ps/view?usp=sharing",
+  },
+  {
+    name: "Photoshop e Illustrator",
+    institution: "Coderhouse",
+    color: "from-pink-400 via-rose-500 to-red-600",
+    icon: "🎨",
+    link: "https://drive.google.com/file/d/1hZMEaVitMqqJ4SjFaiZ-ItiQCsB7Yhab/view?usp=sharing",
+  },
+  {
+    name: "Backend III: Testing y Escalabilidad",
+    institution: "Coderhouse",
+    color: "from-violet-400 via-purple-500 to-indigo-600",
+    icon: "🧪",
+    link: "https://drive.google.com/file/d/1KjYkDduozg6BFFE6HKcW-Jx2ERViGqgX/view?usp=sharing",
+  },
+  {
+    name: "Next Js",
+    institution: "Coderhouse",
+    color: "from-gray-400 via-slate-500 to-gray-700",
+    icon: "▲",
+    link: "https://drive.google.com/file/d/1pvBxKX2xm0Os-hj29678KFGfNZhClvQc/view?usp=sharing",
+  },
+  {
+    name: "Inglés Nivel Advanced",
+    institution: "Coderhouse",
+    color: "from-green-400 via-emerald-500 to-teal-600",
+    icon: "🎓",
+    link: "https://drive.google.com/file/d/1sfhCxMnb1HH6sX6HAgbRrrjQJGVDvhs7/view?usp=sharing",
+  },
+];
+
 
   const projects = [
     {
@@ -560,13 +581,13 @@ export default function Portfolio() {
     { name: "React", level: 95, color: "bg-gradient-to-r from-cyan-500 to-blue-600", icon: "⚛️" },
     { name: "Next.js", level: 90, color: "bg-gradient-to-r from-gray-700 to-gray-900", icon: "▲" },
     { name: "Node.js", level: 88, color: "bg-gradient-to-r from-green-500 to-emerald-600", icon: "🟢" },
-    { name: "TypeScript", level: 92, color: "bg-gradient-to-r from-blue-600 to-indigo-700", icon: "📘" },
+    { name: "TypeScript", level: 75, color: "bg-gradient-to-r from-blue-600 to-indigo-700", icon: "📘" },
     { name: "Java", level: 85, color: "bg-gradient-to-r from-orange-500 to-red-600", icon: "☕" },
     { name: "Python", level: 80, color: "bg-gradient-to-r from-yellow-500 to-green-600", icon: "🐍" },
     { name: "MongoDB", level: 87, color: "bg-gradient-to-r from-green-600 to-teal-700", icon: "🍃" },
-    { name: "PostgreSQL", level: 83, color: "bg-gradient-to-r from-blue-700 to-indigo-800", icon: "🐘" },
     { name: "Docker", level: 78, color: "bg-gradient-to-r from-blue-400 to-cyan-600", icon: "🐳" },
-    { name: "AWS", level: 75, color: "bg-gradient-to-r from-orange-400 to-yellow-600", icon: "☁️" },
+    { name: "JavaScript", level: 92, color: "bg-gradient-to-r from-yellow-400 to-amber-500", icon: "🟨" },
+    { name: "IA", level: 85, color: "bg-gradient-to-r from-purple-500 to-violet-700", icon: "🤖" },
   ]
 
   const timeline = [
