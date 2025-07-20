@@ -542,6 +542,40 @@ export default function Portfolio() {
     },
   ]
 
+  const testimonials = [
+    {
+      name: "María González",
+      role: "Product Manager",
+      company: "TechCorp",
+      text: "Jesús transformó completamente nuestra visión en una realidad digital increíble. Su atención al detalle y capacidad para resolver problemas complejos es excepcional.",
+      avatar: "/placeholder.svg?height=60&width=60",
+      rating: 5,
+    },
+    {
+      name: "Carlos Ruiz",
+      role: "CTO",
+      company: "StartupXYZ",
+      text: "La capacidad de Jesús para resolver problemas complejos y crear soluciones elegantes es impresionante. Un verdadero profesional del desarrollo fullstack.",
+      avatar: "/placeholder.svg?height=60&width=60",
+      rating: 5,
+    },
+    {
+      name: "Ana Martín",
+      role: "UX Designer",
+      company: "Creative Studio",
+      text: "Trabajar con Jesús fue una experiencia fantástica. Entiende perfectamente la intersección entre diseño y desarrollo, creando interfaces hermosas y funcionales.",
+      avatar: "/placeholder.svg?height=60&width=60",
+      rating: 5,
+    },
+    {
+      name: "Roberto Silva",
+      role: "Founder",
+      company: "InnovateLab",
+      text: "Jesús no solo entrega código de calidad, sino que aporta ideas innovadoras que mejoran significativamente el producto final. Altamente recomendado.",
+      avatar: "/placeholder.svg?height=60&width=60",
+      rating: 5,
+    },
+  ]
 
   const skills = [
     { name: "React", level: 95, color: "bg-gradient-to-r from-cyan-500 to-blue-600", icon: "⚛️" },
